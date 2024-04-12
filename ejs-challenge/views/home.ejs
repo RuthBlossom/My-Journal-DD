@@ -1,0 +1,35 @@
+<!-- home.ejs -->
+<%-include("partials/header");-%>
+
+<div class="container">
+    <h1 class="wood-heading">Geek's Home</h1>
+    <p class="wood-content small"><%= homeStartingContent %></p>
+</div>
+ <% console.log(posts); %>
+
+<!-- Use forEach to loop through the posts array and display titles -->
+<% posts.forEach(function(post) { %>
+    <%  console.log(post.title); %>
+<% }); %>
+
+
+<!-- standard loop through the posts array and display titles -->
+<!--for(var i=0; i<posts.lengh; i++) {
+ console.log(posts[i].title)
+ };  -->
+
+<!-- Loop through the posts array and display titles and contents -->
+<!-- Loop through the posts array and display titles and contents -->
+<% posts.forEach(function(post) { %>
+    <h2><%= post.title %></h2>
+    <p>
+        <%= post.content.substring(0, 100) + "..." %>
+
+       <!--Change the href of the anchor tag to use post._id instead of the post name. <a href="/posts/<%= post.title %>">Read More</a> and Handle the Route in app.js: -->
+        <a href="/posts/<%= post._id %>">Read More</a>
+
+    </p>
+<% }); %>
+
+<%-include("partials/footer");-%>
+
